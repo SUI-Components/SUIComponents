@@ -62,6 +62,11 @@ $c-atom-button-colors: (
   )
 ) !default;
 
+$bxsh-atom-button: (
+  large: $bxsh-l,
+  medium: $bxsh-m
+) !default;
+
 $ff-atom-button: $ff-sans-serif !default;
 
 $bdrs-atom-button: $bdrs-m !default;
@@ -218,6 +223,12 @@ $icon-stroke-color: currentColor !default;
     }
   }
 
+  @each $key-bxsh, $bxsh in $bxsh-atom-button {
+    &--elevation-#{$key-bxsh} {
+      box-shadow: $bxsh;
+    }
+  }
+
   // Icons
   &-leftIcon,
   &-rightIcon {
@@ -240,6 +251,11 @@ $icon-stroke-color: currentColor !default;
     $color-invert: nth($pair, 2);
 
     &--#{$name}Color {
+      &:focus {
+        box-shadow: 0 0 4px 1px rgba($color, 0.6),
+          0 -8px 12px -6px rgba($color, 0.5);
+      }
+
       &#{$base-class}--solid {
         background: $color;
         border-color: $color;

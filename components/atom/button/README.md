@@ -70,6 +70,25 @@ return (<div>
 </div>)
 ```
 
+### Button with elevation
+
+Set `elevation` prop to display a shadow around the button. If it's not set no shadow will be shown.
+
+```js
+import Button from '@s-ui/react-atom-button'
+
+return (
+  <>
+    <Button elevation="medium">
+      Example
+    </Button>
+    <Button elevation="large">
+      Example
+    </Button>
+  </>
+)
+```
+
 ### Button inside Form
 
 By default `AtomButton` inside a `form` will submit the form

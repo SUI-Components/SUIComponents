@@ -62,6 +62,14 @@ export const MODIFIERS = [
 ]
 
 /**
+ * A set of elevations that define the box shadow
+ */
+export const ELEVATIONS = {
+  MEDIUM: 'medium',
+  LARGE: 'large'
+}
+
+/**
  * Icon available positions
  */
 export const ICON_POSITIONS = {

@@ -11,7 +11,8 @@ import {
   MODIFIERS,
   OWN_PROPS,
   SIZES,
-  TYPES
+  TYPES,
+  ELEVATIONS
 } from './config'
 
 import Button from './Button'
@@ -87,7 +88,8 @@ const AtomButton = props => {
     size,
     design,
     title,
-    type
+    type,
+    elevation
   } = getPropsWithDefaultValues(props)
 
   const classNames = cx(
@@ -100,6 +102,9 @@ const AtomButton = props => {
     size && CLASSES[size],
     getModifiers(props).map(key => CLASSES[key]),
     !children && CLASSES.empty,
+    {
+      [`${CLASS}--elevation-${elevation}`]: !!elevation
+    },
     className
   )
 
@@ -181,6 +186,10 @@ AtomButton.propTypes = {
    * Size of button 'small' (default), 'large'
    */
   size: PropTypes.oneOf(Object.values(SIZES)),
+  /**
+   * Size of button shadow
+   */
+  elevation: PropTypes.oneOf(Object.values(ELEVATIONS)),
   /**
    * Negative: style for dark backgrounds.
    */
