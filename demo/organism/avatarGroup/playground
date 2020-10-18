@@ -1,0 +1,36 @@
+return (
+  <div
+    style={{
+      maxWidth: '1280px',
+      width: '100%',
+      margin: '0 auto',
+      padding: '12px'
+    }}
+  >
+    <h1>AvatarGroup 👥</h1>
+
+    <h2>Size</h2>
+    <OrganismAvatarGroup>
+      <OrganismAvatarGroup.Avatar name="David Garcia" />
+      <OrganismAvatarGroup.Avatar name="Arnau Rivas" />
+    </OrganismAvatarGroup>
+    <OrganismAvatarGroup style={{marginTop: '8px'}} size="large">
+      <OrganismAvatarGroup.Avatar name="Kiko Ruiz" />
+      <OrganismAvatarGroup.Avatar name="Miguel Angel Duran" />
+    </OrganismAvatarGroup>
+
+    <h2>Max</h2>
+    <OrganismAvatarGroup max={3}>
+      <OrganismAvatarGroup.Avatar
+        name="Arturo Lopez"
+        src="https://avatars2.githubusercontent.com/u/23620759?s=460&u=8e2dc39fcf72fcdb88590a501c5a5976bcea7b5d&v=4"
+      />
+      <OrganismAvatarGroup.Avatar name="Carlos Villuendas" />
+      <OrganismAvatarGroup.Avatar
+        name="Andres Lucas"
+        src="https://avatars1.githubusercontent.com/u/1674036?s=460&v=4"
+      />
+      <OrganismAvatarGroup.Avatar name="David Garcia" />
+    </OrganismAvatarGroup>
+  </div>
+)

@@ -1,0 +1,44 @@
+@import '~@s-ui/theme/lib/index';
+@import '~@s-ui/react-molecule-avatar/lib/index';
+
+$mr-avatar-group: -0.55em !default;
+$bgc-avatar-group-rest: $bgc-avatar !default;
+
+.react-OrganismAvatarGroup {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+
+  &-avatar,
+  &-rest {
+    margin-right: $mr-avatar-group;
+  }
+
+  &-avatar {
+    &:first-child {
+      margin-right: 0;
+    }
+  }
+
+  &-rest {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: $bdrs-rounded;
+    background-color: $bgc-avatar-group-rest;
+  }
+
+  @each $key-size, $size in $s-avatar {
+    &--#{$key-size} &-rest {
+      width: $size;
+      min-width: $size;
+      height: $size;
+    }
+  }
+
+  @each $key-size, $size in $fs-avatar-name {
+    &--#{$key-size} {
+      font-size: $size;
+    }
+  }
+}
