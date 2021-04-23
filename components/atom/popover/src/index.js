@@ -58,9 +58,11 @@ function AtomPopover({
     })
   }
 
-  const handleToggle = () => {
-    setInternalShowPopover(!internalShowPopover)
-    onClose()
+  const handleToggle = e => {
+    if (e && e.type !== 'touchstart') {
+      setInternalShowPopover(!internalShowPopover)
+      onClose()
+    }
   }
 
   return (
