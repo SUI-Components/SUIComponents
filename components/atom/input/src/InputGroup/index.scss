@@ -1,0 +1,56 @@
+$bdrs-atom-input-group: $bdrs-l !default;
+$bdw-atom-input-group: $bdw-s !default;
+$bdc-atom-input-group: $c-gray !default;
+
+$base-class: '.sui-AtomInput-group';
+
+#{$base-class} {
+  border-radius: $bdrs-atom-input-group;
+  border: $bdw-atom-input-group solid $bdc-atom-input-group;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  margin: 0;
+  max-width: 100%;
+  padding: 1px 0;
+  width: fit-content;
+
+  &-item {
+    background: transparent;
+    box-sizing: content-box;
+    border: 0;
+    height: 100%;
+    max-height: 100%;
+    min-height: 0;
+    padding: 0 $p-m;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    &:focus {
+      outline: 0;
+      border: 0;
+      box-shadow: none;
+    }
+
+    &Separator {
+      border-left: 1px solid;
+      height: 40%;
+      align-self: center;
+      border-color: $bdc-atom-input-group;
+    }
+  }
+
+  @each $type, $attr in $sizes-atom-input {
+    &-#{$type} {
+      height: $attr;
+      min-height: $attr;
+    }
+  }
+
+  @each $state, $color in $states-atom-input {
+    &#{$base-class}--#{$state} {
+      border-color: $color;
+    }
+  }
+}

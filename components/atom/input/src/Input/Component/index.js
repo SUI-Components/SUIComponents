@@ -1,28 +1,9 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
+import {SIZES, INPUT_STATES, DEFAULT_PROPS} from '../../constants'
+
 const BASE_CLASS = 'sui-AtomInput-input'
-
-const SIZES = {
-  MEDIUM: 'm',
-  SMALL: 's',
-  XSMALL: 'xs'
-}
-
-const INPUT_STATES = {
-  ERROR: 'error',
-  SUCCESS: 'success',
-  ALERT: 'alert'
-}
-
-const DEFAULT_PROPS = {
-  SIZE: SIZES.MEDIUM,
-  ON_ENTER_KEY: 'Enter',
-  TAB_INDEX: -1,
-  ON_KEY_DOWN: () => {},
-  ON_ENTER: () => {},
-  ON_CHANGE: () => {}
-}
 
 const getClassNames = ({
   size,
@@ -31,7 +12,8 @@ const getClassNames = ({
   noBorder,
   readOnly,
   errorState,
-  state
+  state,
+  className
 }) => {
   return cx(
     BASE_CLASS,
@@ -42,7 +24,8 @@ const getClassNames = ({
     readOnly && `${BASE_CLASS}--readOnly`,
     errorState && `${BASE_CLASS}--${INPUT_STATES.ERROR}`,
     errorState === false && `${BASE_CLASS}--${INPUT_STATES.SUCCESS}`,
-    state && `${BASE_CLASS}--${state}`
+    state && `${BASE_CLASS}--${state}`,
+    className
   )
 }
 
@@ -51,6 +34,7 @@ const Input = ({
   readOnly,
   hideInput,
   noBorder,
+  className,
   id,
   name,
   onBlur,
@@ -79,7 +63,8 @@ const Input = ({
   onKeyDown = DEFAULT_PROPS.ON_KEY_DOWN,
   required,
   pattern,
-  inputMode
+  inputMode,
+  ...props
 }) => {
   const changeHandler = ev => {
     const {
@@ -97,19 +82,21 @@ const Input = ({
     if (key === onEnterKey) onEnter(ev, {value, name})
   }
 
-  const className = getClassNames({
+  const inputClasses = getClassNames({
     size,
     charsSize,
     hideInput,
     noBorder,
     readOnly,
     errorState,
-    state
+    state,
+    className
   })
 
   return (
     <input
-      className={className}
+      {...props}
+      className={inputClasses}
       tabIndex={tabIndex}
       aria-label={ariaLabel}
       disabled={disabled}
@@ -147,6 +134,8 @@ Input.propTypes = {
   readOnly: PropTypes.bool,
   /* The DOM id global attribute. */
   id: PropTypes.string,
+  /* The class to add to the element. */
+  className: PropTypes.string,
   /* sets the name property of an element in the DOM */
   name: PropTypes.string,
   /* onBlur callback */

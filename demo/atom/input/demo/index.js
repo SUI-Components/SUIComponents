@@ -3,7 +3,8 @@ import AtomInput, {
   inputTypes,
   inputStates
 } from '../../../../components/atom/input/src'
-import {useState} from 'react'
+import AtomInputGroup from '../../../../components/atom/input/src/InputGroup'
+import React, {useState} from 'react'
 import {
   H1,
   H2,
@@ -528,6 +529,25 @@ const ErrorStatusDemo = () => {
   )
 }
 
+const GroupDemo = () => (
+  <Article>
+    <H2>InputGroup</H2>
+    <Paragraph>InputGroup with Input children.</Paragraph>
+    <AtomInputGroup status="error">
+      <AtomInput
+        type="number"
+        placeholder="MM"
+        style={{width: '2.6ch', textAlign: 'center'}}
+      />
+      <AtomInput
+        type="number"
+        placeholder="YYYY"
+        style={{width: '4ch', textAlign: 'center'}}
+      />
+    </AtomInputGroup>
+  </Article>
+)
+
 const InlineFormDemo = () => (
   <Article>
     <H2 deprecated>Inline Form</H2>
@@ -566,6 +586,8 @@ const Demo = () => (
       <StateDemo />
       <br />
       <ErrorStatusDemo />
+      <br />
+      <GroupDemo />
       <br />
       <InlineFormDemo />
       <br />
