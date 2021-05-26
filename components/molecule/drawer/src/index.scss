@@ -18,76 +18,8 @@ $bgc-molecule-drawer-overlay-finish: rgba(0, 0, 0, 0.6) !default;
   }
 }
 
-@keyframes open-drawer-left {
-  0% {
-    left: -$w-molecule-drawer;
-  }
-  100% {
-    left: 0px;
-  }
-}
-
-@keyframes close-drawer-left {
-  0% {
-    left: 0px;
-  }
-  100% {
-    left: -$w-molecule-drawer;
-  }
-}
-
-@keyframes open-drawer-right {
-  0% {
-    right: -$w-molecule-drawer;
-  }
-  100% {
-    right: 0px;
-  }
-}
-
-@keyframes close-drawer-right {
-  0% {
-    right: 0px;
-  }
-  100% {
-    right: -$w-molecule-drawer;
-  }
-}
-
-@keyframes open-drawer-top {
-  0% {
-    top: -$h-molecule-drawer;
-  }
-  100% {
-    top: 0px;
-  }
-}
-
-@keyframes close-drawer-top {
-  0% {
-    top: 0px;
-  }
-  100% {
-    top: -$h-molecule-drawer;
-  }
-}
-
-@keyframes open-drawer-bottom {
-  0% {
-    bottom: -$h-molecule-drawer;
-  }
-  100% {
-    bottom: 0px;
-  }
-}
-
-@keyframes close-drawer-bottom {
-  0% {
-    bottom: 0px;
-  }
-  100% {
-    bottom: -$h-molecule-drawer;
-  }
+.openDrawerLeft {
+  transform: translate3d(0, 0, 0);
 }
 
 .react-MoleculeDrawer {
@@ -106,27 +38,43 @@ $bgc-molecule-drawer-overlay-finish: rgba(0, 0, 0, 0.6) !default;
     position: fixed;
     z-index: $z-molecule-drawer;
     background-color: $bgc-molecule-drawer;
+    transition: transform 0.3s linear;
     &--left {
+      top: 0;
+      left: 0;
       height: 100%;
       width: $w-molecule-drawer;
-      left: 0px;
-      top: 0px;
+      transform: translate3d(-100%, 0, 0);
     }
     &--right {
+      top: 0;
+      right: 0;
       height: 100%;
       width: $w-molecule-drawer;
-      right: 0px;
-      top: 0px;
+      transform: translate3d(100%, 0, 0);
     }
     &--top {
+      top: 0;
+      left: 0;
       width: 100%;
       height: $h-molecule-drawer;
-      top: 0px;
+      transform: translate3d(0, -100%, 0);
     }
     &--bottom {
+      bottom: 0;
+      left: 0;
       width: 100%;
       height: $h-molecule-drawer;
-      bottom: 0px;
+      transform: translate3d(0, 100%, 0);
     }
+  }
+
+  &-fullScreen {
+    height: 100vh;
+    width: 100%;
+  }
+
+  &-open {
+    transform: translate3d(0, 0, 0);
   }
 }

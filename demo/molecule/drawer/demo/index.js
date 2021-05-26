@@ -40,7 +40,6 @@ const Demo = () => {
               <ButtonGroup
                 onChange={value => {
                   setPlacement(value)
-                  setIsOpen(true)
                 }}
               >
                 {['left', 'right', 'bottom', 'top'].map(placementOption => (
@@ -48,13 +47,21 @@ const Demo = () => {
                     key={placementOption}
                     onClick={() => {
                       setPlacement(placementOption)
-                      setIsOpen(true)
                     }}
                   >
                     {placementOption}
                   </Button>
                 ))}
               </ButtonGroup>
+            </Cell>
+            <Cell>
+              <Button
+                onClick={() => {
+                  setIsOpen(true)
+                }}
+              >
+                OPEN
+              </Button>
             </Cell>
           </Grid>
         </Box>

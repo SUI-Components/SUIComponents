@@ -2,7 +2,7 @@ import {useState, useEffect, useRef} from 'react'
 import PropTypes from 'prop-types'
 import {createPortal} from 'react-dom'
 import cx from 'classnames'
-import {useEventListener, useBoolean} from '@s-ui/react-hooks'
+import {useEventListener} from '@s-ui/react-hooks'
 
 const Overlay = 'div'
 const Body = 'div'
@@ -19,20 +19,16 @@ export default function MoleculeDrawer({
   portalContainerId = 'drawer-react-portal',
   isOpen = false,
   placement = PLACEMENTS.LEFT,
+  fullScreen = true,
   onClose,
   children
 }) {
   const overlayRef = useRef(null)
   const [isClientReady, setClientReady] = useState(false)
-  const [value, {off, on}] = useBoolean(isOpen)
 
   useEffect(() => {
     setClientReady(true)
   }, [])
-
-  useEffect(() => {
-    isOpen && on()
-  }, [isOpen, on])
 
   useEventListener('keydown', event => {
     if (isOpen === false) return
@@ -52,32 +48,37 @@ export default function MoleculeDrawer({
     return containerDOMEl
   }
 
-  const drawer = value && (
+  const drawer = (
     <div className="react-MoleculeDrawer">
-      <Overlay
-        ref={overlayRef}
-        className="react-MoleculeDrawer-overlay"
-        onClick={event => {
-          overlayRef.current === event.target &&
-            typeof onClose === 'function' &&
-            onClose(event)
-        }}
-      >
-        <Content
-          onAnimationEnd={() => !isOpen && off()}
-          className={cx(
-            'react-MoleculeDrawer-content',
-            `react-MoleculeDrawer-content--${placement}`
-          )}
-          style={{
-            animation: `${
-              isOpen ? 'open' : 'close'
-            }-drawer-${placement} 0.3s both`
+      {isOpen && (
+        <Overlay
+          ref={overlayRef}
+          className="react-MoleculeDrawer-overlay"
+          onClick={event => {
+            overlayRef.current === event.target &&
+              typeof onClose === 'function' &&
+              onClose(event)
           }}
-        >
-          <Body className="react-MoleculeDrawer-body">{children}</Body>
-        </Content>
-      </Overlay>
+        />
+      )}
+      <Content
+        onAnimationEnd={() => !isOpen && onClose()}
+        className={cx(
+          {
+            'react-MoleculeDrawer-open': isOpen,
+            'react-MoleculeDrawer-fullScreen': fullScreen
+          },
+          'react-MoleculeDrawer-content',
+          `react-MoleculeDrawer-content--${placement}`
+        )}
+        // style={{
+        //   animation: `${
+        //     isOpen ? 'open' : 'close'
+        //   }-drawer-${placement} 0.3s both`
+        // }}
+      >
+        <Body className="react-MoleculeDrawer-body">{children}</Body>
+      </Content>
     </div>
   )
 
