@@ -9,6 +9,19 @@ $bgc-molecule-drawer: $c-white !default;
 $bgc-molecule-drawer-overlay-start: rgba(0, 0, 0, 0.4) !default;
 $bgc-molecule-drawer-overlay-finish: rgba(0, 0, 0, 0.6) !default;
 
+$z-molecule-drawer-map: (
+  auto: auto,
+  m: $w-molecule-drawer,
+  fill: 100%
+);
+
+$trsdu-molecule-drawer-map: (
+  none: $dur-none,
+  fast: $dur-fast,
+  normal: $dur-normal,
+  slow: $dur-slow
+);
+
 @keyframes bg-overlay {
   0% {
     background-color: $bgc-molecule-drawer-overlay-start;
@@ -18,115 +31,95 @@ $bgc-molecule-drawer-overlay-finish: rgba(0, 0, 0, 0.6) !default;
   }
 }
 
-@keyframes open-drawer-left {
-  0% {
-    left: -$w-molecule-drawer;
-  }
-  100% {
-    left: 0px;
-  }
-}
-
-@keyframes close-drawer-left {
-  0% {
-    left: 0px;
-  }
-  100% {
-    left: -$w-molecule-drawer;
-  }
-}
-
-@keyframes open-drawer-right {
-  0% {
-    right: -$w-molecule-drawer;
-  }
-  100% {
-    right: 0px;
-  }
-}
-
-@keyframes close-drawer-right {
-  0% {
-    right: 0px;
-  }
-  100% {
-    right: -$w-molecule-drawer;
-  }
-}
-
-@keyframes open-drawer-top {
-  0% {
-    top: -$h-molecule-drawer;
-  }
-  100% {
-    top: 0px;
-  }
-}
-
-@keyframes close-drawer-top {
-  0% {
-    top: 0px;
-  }
-  100% {
-    top: -$h-molecule-drawer;
-  }
-}
-
-@keyframes open-drawer-bottom {
-  0% {
-    bottom: -$h-molecule-drawer;
-  }
-  100% {
-    bottom: 0px;
-  }
-}
-
-@keyframes close-drawer-bottom {
-  0% {
-    bottom: 0px;
-  }
-  100% {
-    bottom: -$h-molecule-drawer;
-  }
-}
-
 .react-MoleculeDrawer {
   &-overlay {
-    position: fixed;
+    display: none;
+    &-open {
+      display: block;
+    }
+    position: absolute;
     left: 0px;
     top: 0px;
     width: 100%;
     height: 100%;
     z-index: $z-molecule-drawer-overlay;
-    animation: bg-overlay 1s both;
+    animation-name: bg-overlay;
+    animation-fill-mode: both;
+    @each $transition-duration-name,
+      $transition-duration-value in $trsdu-molecule-drawer-map
+    {
+      &--duration-#{$transition-duration-name} {
+        animation-duration: $transition-duration-value;
+      }
+    }
   }
 
   &-content {
-    box-shadow: $bxsh-molecule-drawer;
-    position: fixed;
+    $this: &;
+    position: absolute;
     z-index: $z-molecule-drawer;
     background-color: $bgc-molecule-drawer;
-    &--left {
-      height: 100%;
-      width: $w-molecule-drawer;
-      left: 0px;
-      top: 0px;
+    transition-timing-function: linear;
+    @each $transition-duration-name,
+      $transition-duration-value in $trsdu-molecule-drawer-map
+    {
+      &--duration-#{$transition-duration-name} {
+        transition-duration: $transition-duration-value;
+      }
     }
-    &--right {
-      height: 100%;
-      width: $w-molecule-drawer;
-      right: 0px;
-      top: 0px;
-    }
-    &--top {
-      width: 100%;
-      height: $h-molecule-drawer;
-      top: 0px;
-    }
-    &--bottom {
-      width: 100%;
-      height: $h-molecule-drawer;
-      bottom: 0px;
+    @each $size-name, $size-value in $z-molecule-drawer-map {
+      &--#{$size-name}--left {
+        transition-property: translateX;
+        height: 100%;
+        width: $size-value;
+        top: 0px;
+        left: 0px;
+        transform: translateX(-100%);
+        &#{$this}-open {
+          transform: translateX(0);
+          transition-property: transform;
+          box-shadow: $bxsh-molecule-drawer;
+        }
+      }
+      &--#{$size-name}--right {
+        transition-property: translateX;
+        height: 100%;
+        width: $size-value;
+        top: 0px;
+        right: 0px;
+        transform: translateX(100%);
+        &#{$this}-open {
+          transform: translateX(0);
+          transition-property: transform;
+          box-shadow: $bxsh-molecule-drawer;
+        }
+      }
+      &--#{$size-name}--top {
+        transition-property: translateY;
+        width: 100%;
+        height: $size-value;
+        top: 0px;
+        left: 0;
+        transform: translateY(-100%);
+        &#{$this}-open {
+          transform: translateY(0);
+          transition-property: transform;
+          box-shadow: $bxsh-molecule-drawer;
+        }
+      }
+      &--#{$size-name}--bottom {
+        transition-property: translateY;
+        width: 100%;
+        height: $size-value;
+        bottom: 0px;
+        left: 0;
+        transform: translateY(100%);
+        &#{$this}-open {
+          transform: translateY(0);
+          transition-property: transform;
+          box-shadow: $bxsh-molecule-drawer;
+        }
+      }
     }
   }
 }
