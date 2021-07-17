@@ -7,6 +7,8 @@ $c-accent-hover: color-variation($c-accent, -1) !default;
 $c-accent-flat-hover: color-variation($c-accent, 4) !default;
 $c-primary-hover: color-variation($c-primary, -1) !default;
 $c-primary-flat-hover: color-variation($c-primary, 4) !default;
+$c-secondary-hover: color-variation($c-secondary, -1) !default;
+$c-secondary-flat-hover: color-variation($c-secondary, 4) !default;
 
 $c-atom-button-colors: (
   'primary': (
@@ -14,6 +16,12 @@ $c-atom-button-colors: (
     $c-white,
     $c-primary-hover,
     $c-primary-flat-hover
+  ),
+  'secondary': (
+    $c-secondary,
+    $c-white,
+    $c-secondary-hover,
+    $c-secondary-flat-hover
   ),
   'accent': (
     $c-accent,

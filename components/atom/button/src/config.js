@@ -29,6 +29,7 @@ export const ALIGNMENT = {
  */
 export const COLORS = [
   'primary',
+  'secondary',
   'accent',
   'neutral',
   'success',

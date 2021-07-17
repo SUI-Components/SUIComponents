@@ -64,9 +64,15 @@ const starIcon = (
 
 const atomButtonColorsIterator = atomButtonColors
   .filter(color =>
-    ['primary', 'accent', 'neutral', 'success', 'alert', 'error'].includes(
-      color
-    )
+    [
+      'primary',
+      'secondary',
+      'accent',
+      'neutral',
+      'success',
+      'alert',
+      'error'
+    ].includes(color)
   )
   .map((color, index) => [{color}, index])
 const atomButtonSocialColorsIterator = atomButtonColors
@@ -354,7 +360,7 @@ const Demo = () => {
             are solid by default for each <Code>design</Code>.
           </Paragraph>
           <Article>
-            <Grid cols={7} gutter={10}>
+            <Grid cols={8} gutter={10}>
               <Cell />
               {atomButtonColorsIterator.map(([{color}], index) => (
                 <Cell key={index} style={flexCenteredStyle}>
@@ -385,7 +391,7 @@ const Demo = () => {
             dark backgrounds.
           </Paragraph>
           <Article mode="dark">
-            <Grid cols={7} gutter={10}>
+            <Grid cols={8} gutter={10}>
               <Cell />
               {atomButtonColorsIterator.map(([{color}], index) => (
                 <Cell key={index} style={flexCenteredStyle}>
