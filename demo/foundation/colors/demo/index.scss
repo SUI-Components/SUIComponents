@@ -1,0 +1,601 @@
+@import '~@s-ui/theme/lib/index';
+
+$base-class: '.DemoFoundationColor';
+$base-class-section: #{$base-class}#{-section};
+
+#{$base-class} {
+  #{$base-class-section} {
+    .demo-color {
+      display: flex;
+    }
+    &#{$base-class-section}-color-brand {
+      .color-brand {
+        &--primary,
+        &--secondary,
+        &--accent {
+          font-size: 10em;
+        }
+        &--primary {
+          background-color: $c-primary;
+        }
+        &--primary--variation {
+          font-size: 5em;
+          display: grid;
+          &-light-5 {
+            background-color: $c-primary-light-5;
+          }
+          &-light-4 {
+            background-color: $c-primary-light-4;
+          }
+          &-light-3 {
+            background-color: $c-primary-light-3;
+          }
+          &-light-2 {
+            background-color: $c-primary-light-2;
+          }
+          &-light-1 {
+            background-color: $c-primary-light-1;
+          }
+          &-default {
+            background-color: $c-primary;
+          }
+          &-dark-1 {
+            background-color: $c-primary-dark-1;
+          }
+          &-dark-2 {
+            background-color: $c-primary-dark-2;
+          }
+          &-dark-3 {
+            background-color: $c-primary-dark-3;
+          }
+          &-dark-4 {
+            background-color: $c-primary-dark-4;
+          }
+        }
+        &--primary--color-variation {
+          font-size: 5em;
+          display: grid;
+          &-light-5 {
+            background-color: color-variation($c-primary, 5);
+          }
+          &-light-4 {
+            background-color: color-variation($c-primary, 4);
+          }
+          &-light-3 {
+            background-color: color-variation($c-primary, 3);
+          }
+          &-light-2 {
+            background-color: color-variation($c-primary, 2);
+          }
+          &-light-1 {
+            background-color: color-variation($c-primary, 1);
+          }
+          &-default {
+            background-color: $c-primary;
+          }
+          &-dark-1 {
+            background-color: color-variation($c-primary, -1);
+          }
+          &-dark-2 {
+            background-color: color-variation($c-primary, -2);
+          }
+          &-dark-3 {
+            background-color: color-variation($c-primary, -3);
+          }
+          &-dark-4 {
+            background-color: color-variation($c-primary, -4);
+          }
+        }
+
+        &--secondary {
+          background-color: $c-secondary;
+        }
+
+        &--secondary--variation {
+          font-size: 5em;
+          display: grid;
+          &-light-5 {
+            background-color: $c-secondary-light-5;
+          }
+          &-light-4 {
+            background-color: $c-secondary-light-4;
+          }
+          &-light-3 {
+            background-color: $c-secondary-light-3;
+          }
+          &-light-2 {
+            background-color: $c-secondary-light-2;
+          }
+          &-light-1 {
+            background-color: $c-secondary-light-1;
+          }
+          &-default {
+            background-color: $c-secondary;
+          }
+          &-dark-1 {
+            background-color: $c-secondary-dark-1;
+          }
+          &-dark-2 {
+            background-color: $c-secondary-dark-2;
+          }
+          &-dark-3 {
+            background-color: $c-secondary-dark-3;
+          }
+          &-dark-4 {
+            background-color: $c-secondary-dark-4;
+          }
+        }
+        &--secondary--color-variation {
+          font-size: 5em;
+          display: grid;
+          &-light-5 {
+            background-color: color-variation($c-secondary, 5);
+          }
+          &-light-4 {
+            background-color: color-variation($c-secondary, 4);
+          }
+          &-light-3 {
+            background-color: color-variation($c-secondary, 3);
+          }
+          &-light-2 {
+            background-color: color-variation($c-secondary, 2);
+          }
+          &-light-1 {
+            background-color: color-variation($c-secondary, 1);
+          }
+          &-default {
+            background-color: $c-secondary;
+          }
+          &-dark-1 {
+            background-color: color-variation($c-secondary, -1);
+          }
+          &-dark-2 {
+            background-color: color-variation($c-secondary, -2);
+          }
+          &-dark-3 {
+            background-color: color-variation($c-secondary, -3);
+          }
+          &-dark-4 {
+            background-color: color-variation($c-secondary, -4);
+          }
+        }
+
+        &--accent {
+          background-color: $c-accent;
+        }
+        &--accent--variation {
+          font-size: 5em;
+          &-light-5 {
+            background-color: $c-accent-light-5;
+          }
+          &-light-4 {
+            background-color: $c-accent-light-4;
+          }
+          &-light-3 {
+            background-color: $c-accent-light-3;
+          }
+          &-light-2 {
+            background-color: $c-accent-light-2;
+          }
+          &-light-1 {
+            background-color: $c-accent-light-1;
+          }
+          &-default {
+            background-color: $c-accent;
+          }
+          &-dark-1 {
+            background-color: $c-accent-dark-1;
+          }
+          &-dark-2 {
+            background-color: $c-accent-dark-2;
+          }
+          &-dark-3 {
+            background-color: $c-accent-dark-3;
+          }
+          &-dark-4 {
+            background-color: $c-accent-dark-4;
+          }
+        }
+        &--accent--color-variation {
+          font-size: 5em;
+          display: grid;
+          &-light-5 {
+            background-color: color-variation($c-accent, 5);
+          }
+          &-light-4 {
+            background-color: color-variation($c-accent, 4);
+          }
+          &-light-3 {
+            background-color: color-variation($c-accent, 3);
+          }
+          &-light-2 {
+            background-color: color-variation($c-accent, 2);
+          }
+          &-light-1 {
+            background-color: color-variation($c-accent, 1);
+          }
+          &-default {
+            background-color: $c-accent;
+          }
+          &-dark-1 {
+            background-color: color-variation($c-accent, -1);
+          }
+          &-dark-2 {
+            background-color: color-variation($c-accent, -2);
+          }
+          &-dark-3 {
+            background-color: color-variation($c-accent, -3);
+          }
+          &-dark-4 {
+            background-color: color-variation($c-accent, -4);
+          }
+        }
+      }
+    }
+    &#{$base-class-section}-color-basic {
+      .color-basic {
+        &--white,
+        &--black,
+        &--gray {
+          font-size: 10em;
+        }
+        &--white {
+          background-color: $c-white;
+        }
+        &--black {
+          background-color: $c-black;
+        }
+        &--gray {
+          background-color: $c-gray;
+        }
+        &--gray--variation {
+          font-size: 5em;
+          &-light-5 {
+            background-color: $c-gray-light-5;
+          }
+          &-light-4 {
+            background-color: $c-gray-light-4;
+          }
+          &-light-3 {
+            background-color: $c-gray-light-3;
+          }
+          &-light-2 {
+            background-color: $c-gray-light-2;
+          }
+          &-light-1 {
+            background-color: $c-gray-light-1;
+          }
+          &-default {
+            background-color: $c-gray;
+          }
+          &-dark-1 {
+            background-color: $c-gray-dark-1;
+          }
+          &-dark-2 {
+            background-color: $c-gray-dark-2;
+          }
+          &-dark-3 {
+            background-color: $c-gray-dark-3;
+          }
+          &-dark-4 {
+            background-color: $c-gray-dark-4;
+          }
+        }
+        &--gray--color-variation {
+          font-size: 5em;
+          display: grid;
+          &-light-5 {
+            background-color: color-variation($c-gray, 5);
+          }
+          &-light-4 {
+            background-color: color-variation($c-gray, 4);
+          }
+          &-light-3 {
+            background-color: color-variation($c-gray, 3);
+          }
+          &-light-2 {
+            background-color: color-variation($c-gray, 2);
+          }
+          &-light-1 {
+            background-color: color-variation($c-gray, 1);
+          }
+          &-default {
+            background-color: $c-gray;
+          }
+          &-dark-1 {
+            background-color: color-variation($c-gray, -1);
+          }
+          &-dark-2 {
+            background-color: color-variation($c-gray, -2);
+          }
+          &-dark-3 {
+            background-color: color-variation($c-gray, -3);
+          }
+          &-dark-4 {
+            background-color: color-variation($c-gray, -4);
+          }
+        }
+      }
+    }
+    &#{$base-class-section}-color-semantic {
+      .color-semantic {
+        &--success,
+        &--alert,
+        &--error {
+          font-size: 10em;
+        }
+        &--success {
+          background-color: $c-success;
+        }
+        &--success--variation {
+          font-size: 5em;
+          display: grid;
+          &-light-5 {
+            background-color: $c-success-light-5;
+          }
+          &-light-4 {
+            background-color: $c-success-light-4;
+          }
+          &-light-3 {
+            background-color: $c-success-light-3;
+          }
+          &-light-2 {
+            background-color: $c-success-light-2;
+          }
+          &-light-1 {
+            background-color: $c-success-light-1;
+          }
+          &-default {
+            background-color: $c-success;
+          }
+          &-dark-1 {
+            background-color: $c-success-dark-1;
+          }
+          &-dark-2 {
+            background-color: $c-success-dark-2;
+          }
+          &-dark-3 {
+            background-color: $c-success-dark-3;
+          }
+          &-dark-4 {
+            background-color: $c-success-dark-4;
+          }
+        }
+        &--success--color-variation {
+          font-size: 5em;
+          display: grid;
+          &-light-5 {
+            background-color: color-variation($c-success, 5);
+          }
+          &-light-4 {
+            background-color: color-variation($c-success, 4);
+          }
+          &-light-3 {
+            background-color: color-variation($c-success, 3);
+          }
+          &-light-2 {
+            background-color: color-variation($c-success, 2);
+          }
+          &-light-1 {
+            background-color: color-variation($c-success, 1);
+          }
+          &-default {
+            background-color: $c-success;
+          }
+          &-dark-1 {
+            background-color: color-variation($c-success, -1);
+          }
+          &-dark-2 {
+            background-color: color-variation($c-success, -2);
+          }
+          &-dark-3 {
+            background-color: color-variation($c-success, -3);
+          }
+          &-dark-4 {
+            background-color: color-variation($c-success, -4);
+          }
+        }
+
+        &--alert {
+          background-color: $c-alert;
+        }
+
+        &--alert--variation {
+          font-size: 5em;
+          display: grid;
+          &-light-5 {
+            background-color: $c-alert-light-5;
+          }
+          &-light-4 {
+            background-color: $c-alert-light-4;
+          }
+          &-light-3 {
+            background-color: $c-alert-light-3;
+          }
+          &-light-2 {
+            background-color: $c-alert-light-2;
+          }
+          &-light-1 {
+            background-color: $c-alert-light-1;
+          }
+          &-default {
+            background-color: $c-alert;
+          }
+          &-dark-1 {
+            background-color: $c-alert-dark-1;
+          }
+          &-dark-2 {
+            background-color: $c-alert-dark-2;
+          }
+          &-dark-3 {
+            background-color: $c-alert-dark-3;
+          }
+          &-dark-4 {
+            background-color: $c-alert-dark-4;
+          }
+        }
+        &--alert--color-variation {
+          font-size: 5em;
+          display: grid;
+          &-light-5 {
+            background-color: color-variation($c-alert, 5);
+          }
+          &-light-4 {
+            background-color: color-variation($c-alert, 4);
+          }
+          &-light-3 {
+            background-color: color-variation($c-alert, 3);
+          }
+          &-light-2 {
+            background-color: color-variation($c-alert, 2);
+          }
+          &-light-1 {
+            background-color: color-variation($c-alert, 1);
+          }
+          &-default {
+            background-color: $c-alert;
+          }
+          &-dark-1 {
+            background-color: color-variation($c-alert, -1);
+          }
+          &-dark-2 {
+            background-color: color-variation($c-alert, -2);
+          }
+          &-dark-3 {
+            background-color: color-variation($c-alert, -3);
+          }
+          &-dark-4 {
+            background-color: color-variation($c-alert, -4);
+          }
+        }
+
+        &--error {
+          background-color: $c-error;
+        }
+        &--error--variation {
+          font-size: 5em;
+          &-light-5 {
+            background-color: $c-error-light-5;
+          }
+          &-light-4 {
+            background-color: $c-error-light-4;
+          }
+          &-light-3 {
+            background-color: $c-error-light-3;
+          }
+          &-light-2 {
+            background-color: $c-error-light-2;
+          }
+          &-light-1 {
+            background-color: $c-error-light-1;
+          }
+          &-default {
+            background-color: $c-error;
+          }
+          &-dark-1 {
+            background-color: $c-error-dark-1;
+          }
+          &-dark-2 {
+            background-color: $c-error-dark-2;
+          }
+          &-dark-3 {
+            background-color: $c-error-dark-3;
+          }
+          &-dark-4 {
+            background-color: $c-error-dark-4;
+          }
+        }
+        &--error--color-variation {
+          font-size: 5em;
+          display: grid;
+          &-light-5 {
+            background-color: color-variation($c-error, 5);
+          }
+          &-light-4 {
+            background-color: color-variation($c-error, 4);
+          }
+          &-light-3 {
+            background-color: color-variation($c-error, 3);
+          }
+          &-light-2 {
+            background-color: color-variation($c-error, 2);
+          }
+          &-light-1 {
+            background-color: color-variation($c-error, 1);
+          }
+          &-default {
+            background-color: $c-error;
+          }
+          &-dark-1 {
+            background-color: color-variation($c-error, -1);
+          }
+          &-dark-2 {
+            background-color: color-variation($c-error, -2);
+          }
+          &-dark-3 {
+            background-color: color-variation($c-error, -3);
+          }
+          &-dark-4 {
+            background-color: color-variation($c-error, -4);
+          }
+        }
+      }
+    }
+    &#{$base-class-section}-color-social-network {
+      .color-social-network {
+        &--facebook,
+        &--twitter,
+        &--google,
+        &--youtube,
+        &--whatsapp,
+        &--instagram {
+          font-size: 10em;
+        }
+        &--facebook {
+          background-color: $c-facebook;
+        }
+        &--twitter {
+          background-color: $c-twitter;
+        }
+        &--google {
+          background-color: $c-google;
+        }
+        &--youtube {
+          background-color: $c-youtube;
+        }
+        &--whatsapp {
+          background-color: $c-whatsapp;
+        }
+        &--instagram {
+          background-color: $c-instagram;
+        }
+      }
+    }
+    &#{$base-class-section}-color-other {
+      .color-other {
+        &--system,
+        &--highlight,
+        &--text-base,
+        &--text-accent,
+        &--text-link {
+          font-size: 10em;
+        }
+        &--system {
+          background-color: $c-system;
+        }
+        &--highlight {
+          background-color: $c-highlight;
+        }
+        &--text-base {
+          background-color: $c-text-base;
+        }
+        &--text-accent {
+          background-color: $c-text-accent;
+        }
+        &--text-link {
+          background-color: $c-text-link;
+        }
+      }
+    }
+  }
+}
