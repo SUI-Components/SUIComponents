@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, isValidElement, cloneElement} from 'react'
 import PropTypes from 'prop-types'
 import Input from '../Input'
 
@@ -11,7 +11,24 @@ const PASSWORD = 'password'
 const HIDE_LABEL = 'hide'
 const SHOW_LABEL = 'show'
 
-const Password = ({onChange, pwShowLabel, pwHideLabel, ...props}) => {
+const PasswordRightButton = props => {
+  return (
+    <div
+      role="button"
+      tabIndex="0"
+      className={CLASS_PASSWORD_TOGGLE_BUTTON}
+      {...props}
+    />
+  )
+}
+
+const Password = ({
+  onChange,
+  pwShowLabel,
+  pwHideLabel,
+  rightElement,
+  ...props
+}) => {
   const [type, setType] = useState(PASSWORD)
   const [value, setValue] = useState('')
 
@@ -28,14 +45,21 @@ const Password = ({onChange, pwShowLabel, pwHideLabel, ...props}) => {
   return (
     <div className={CLASS_PASSWORD}>
       <Input {...props} onChange={handleChange} value={value} type={type} />
-      <div onClick={toggle} className={CLASS_PASSWORD_TOGGLE_BUTTON}>
-        {type === PASSWORD ? pwShowLabel : pwHideLabel}
-      </div>
+
+      {isValidElement(rightElement) ? (
+        cloneElement(rightElement, {onClick: toggle})
+      ) : (
+        <PasswordRightButton onClick={toggle}>
+          {type === PASSWORD ? pwShowLabel : pwHideLabel}
+        </PasswordRightButton>
+      )}
     </div>
   )
 }
 
 Password.propTypes = {
+  /* Element to be placed to right of the input */
+  rightElement: PropTypes.element,
   /* Text to be shown in order to show the password on click */
   pwShowLabel: PropTypes.string,
   /* Text to be shown in order to hide the password on click */
@@ -53,5 +77,7 @@ Password.defaultProps = {
   pwHideLabel: HIDE_LABEL,
   onChange: () => {}
 }
+
+Password.RightButton = PasswordRightButton
 
 export default Password
