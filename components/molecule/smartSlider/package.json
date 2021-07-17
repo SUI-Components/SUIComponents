@@ -1,0 +1,20 @@
+{
+  "name": "@s-ui/react-molecule-smart-slider",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepare": "npx rimraf ./lib && npm run build:js && npm run build:styles",
+    "build:js": "../../../node_modules/.bin/babel --presets sui ./src --out-dir ./lib",
+    "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
+  },
+  "peerDependencies": {
+    "@s-ui/component-dependencies": "1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@s-ui/react-atom-slider": "1"
+  }
+}
